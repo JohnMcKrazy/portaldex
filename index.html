@@ -314,7 +314,7 @@
                                     </span>
                                     <p class="label" change es="ninguno" en="none">ninguno</p>
                                 </div>
-                                <div class="item_content" poke-icon="trade">
+                                <div class="item_content" poke-icon="trade" hidden="true" active="false">
                                     <span class="icon none_icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path
@@ -324,7 +324,7 @@
                                     </span>
                                     <p class="label" change es="intercambio" en="trade">intercambio</p>
                                 </div>
-                                <div class="item_content" poke-icon="level-up">
+                                <div class="item_content" poke-icon="level-up" hidden="true" active="false">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path d="M12 4.83582L5.79291 11.0429L7.20712 12.4571L12 7.66424L16.7929 12.4571L18.2071 11.0429L12 4.83582ZM12 10.4857L5.79291 16.6928L7.20712 18.107L12 13.3141L16.7929 18.107L18.2071 16.6928L12 10.4857Z"></path>
@@ -332,7 +332,7 @@
                                     </span>
                                     <p class="label" change es="crecimiento" en="level-up">crecimiento</p>
                                 </div>
-                                <div class="item_compous_content">
+                                <div class="item_compous_content" hidden="true" active="false">
                                     <div class="item_content" poke-icon="use-item">
                                         <span class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
@@ -366,7 +366,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item_compous_content">
+                                <div class="item_compous_content" hidden="true" active="false">
                                     <div class="item_content" poke-icon="known_move">
                                         <span class="icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -384,7 +384,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item_content" poke-icon="time_of_day">
+                                <div class="item_content" poke-icon="time_of_day" hidden="true" active="false">
                                     <span class="icon">
                                         <svg sun xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" time-night>
                                             <path
@@ -399,7 +399,7 @@
                                     </span>
                                     <p class="label" change es="hora del dia: " en="time the day: ">hora del dia: <span time_of_day change es="" en=""></span></p>
                                 </div>
-                                <div class="item_content" poke-icon="min_happiness">
+                                <div class="item_content" poke-icon="min_happiness" hidden="true" active="false">
                                     <span class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                             <path
@@ -410,7 +410,7 @@
                                     <p class="label" change es="minima felicidad: " en="min-happines: ">minima felicidad: <span min_happiness change es="" en=""></span></p>
                                 </div>
 
-                                <div class="data_item" poke-icon="location">
+                                <div class="data_item" poke-icon="location" hidden="true" active="false">
                                     <p class="label accent_color" change es="locación" en="location">locación</p>
                                     <span class="inner_item">
                                         <span location></span>
@@ -634,7 +634,7 @@
                 </form>
             </div>
         </dialog>
-        <dialog class="dialog alert" modal-active="false" alert>
+        <dialog class="dialog details" modal-active="false" details>
             <div class="btns_container justify_between">
                 <div class="btns_container lang_menu">
                     <button type="button" class="data_btn" action="lang" aria-label="change languaje button">
@@ -665,13 +665,13 @@
                         <span class="label" change es="Sonido" en="Sound" label>Sonido</span>
                     </button>
                 </div>
-                <button class="close_btn icon" type="button" close-btn alert-btn="start">
+                <button class="close_btn icon" type="button" close-btn details-btn="start">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon_svg">
                         <path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path>
                     </svg>
                 </button>
             </div>
-            <div class="window alert_window" alert-window="start" hidden="false" modal-active="true">
+            <div class="window alert_window" details-window="start" hidden="false" modal-active="true">
                 <h2 class="title_modal" change es="Bienvenido" en="Welcome">Bienvenido</h2>
                 <p class="text_modal"></p>
                 <div class="divider"></div>

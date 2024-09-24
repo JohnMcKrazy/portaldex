@@ -121,6 +121,8 @@ const createTypePill = (dataType, container) => {
     btnPill.classList.add("type_pill");
     btnPill.setAttribute("color-scheme", dataType.name[en]);
     iconPill.insertAdjacentHTML("afterbegin", dataType.svg);
+    btnPill.setAttribute(`details-btn`, "");
+    btnPill.addEventListener("click", () => activateDialogAction("details", btnPill));
     container.append(newPill);
 };
 const createPill = (data, container) => {
@@ -284,7 +286,7 @@ const setPokeData = async (id) => {
         pokeImg.setAttribute("alt", data.name);
         pokeNames.forEach((name) => (name.textContent = data.name));
         pokeId.textContent = data.id;
-        /* if (audioActive) playAudio(data.cries.latest); */
+        if (audioActive) playAudio(data.cries.latest);
 
         //! DESCRIPTION FLAVORS DATA//
         const pokeFlavors = speciesData.flavor_text_entries;
@@ -611,26 +613,31 @@ const changeMeasurementSystem = () => {
 };
 measurementBtn.addEventListener("click", changeMeasurementSystem);
 //! DIALOGS ACTIONS //
-const dialogWindows = ["modal", "alert"];
+const dialogWindows = ["modal", "details"];
+const activateDialogAction = (dialog, btn) => {
+    console.log(dialog, btn);
+    const modal = selector(`[${dialog}]`);
+    const dialogStatus = modal.getAttribute("modal-active");
+    freezPage();
+    selectorAll(`[${dialog}-window-btn]`).forEach((swiperBtn) => swiperBtn.setAttribute("btn-active", false));
+    const currentBtn = btn.getAttribute(`${dialog}-btn`);
+    selector(`[${dialog}-window-btn='${currentBtn}']`).setAttribute("btn-active", true);
+    const dialogWindow = selector(`[${dialog}-window='${currentBtn}']`);
+    selector(`[close-btn]`, modal).setAttribute(`${dialog}-btn`, currentBtn);
+    if (dialogStatus === "false") {
+        modal.showModal();
+        modal.setAttribute("modal-active", "true");
+        dialogWindow.setAttribute("hidden", "false");
+        setTimeout(() => dialogWindow.setAttribute("modal-active", "true"), 100);
+    }
+    return dialogStatus;
+};
 dialogWindows.forEach((dialog) => {
     let modal;
     let dialogStatus;
     selectorAll(`[${dialog}-btn]`).forEach((btn) =>
         btn.addEventListener("click", () => {
-            const modal = selector(`[${dialog}]`);
-            dialogStatus = modal.getAttribute("modal-active");
-            freezPage();
-            selectorAll(`[${dialog}-window-btn]`).forEach((swiperBtn) => swiperBtn.setAttribute("btn-active", false));
-            const currentBtn = btn.getAttribute(`${dialog}-btn`);
-            selector(`[${dialog}-window-btn='${currentBtn}']`).setAttribute("btn-active", true);
-            const dialogWindow = selector(`[${dialog}-window='${currentBtn}']`);
-            selector(`[close-btn]`, modal).setAttribute(`${dialog}-btn`, currentBtn);
-            if (dialogStatus === "false") {
-                modal.showModal();
-                modal.setAttribute("modal-active", "true");
-                dialogWindow.setAttribute("hidden", "false");
-                setTimeout(() => dialogWindow.setAttribute("modal-active", "true"), 100);
-            }
+            dialogStatus = activateDialogAction(dialog, btn);
         })
     );
     selectorAll("[close-btn]").forEach((btn) => {
@@ -695,6 +702,7 @@ selectorAll(`[option-btn]`).forEach((btn) => {
         }
     });
 });
+
 const newCards = (link) => {
     console.log("prueba de new");
 };
