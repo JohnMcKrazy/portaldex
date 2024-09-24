@@ -485,6 +485,9 @@ const setPokeData = async (id) => {
         } ${currentLang === es ? "y una altura promedio de " : " an average height of "}${
             currentMeasurmentSystem === metric ? metricPokeHeight + (currentLang === es ? " metros de altura" : " height") : parseInt(imperialHeightFeet) + (currentLang === es ? " pies, con " : " foots, with ") + imperialHeightInches + (currentLang === es ? " pulgadas" : " inches")
         }`;
+        setTimeout(() => {
+            speechFunction(pokeDescriptionSpeech);
+        }, 3000);
     } catch (error) {
         console.log(error);
     } finally {
