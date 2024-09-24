@@ -81,10 +81,10 @@
     // ¿GENERAL START //
     --fontSize: 10px;
     --iconSize: 4rem;
-    --imgSize: 30rem;
+    --imgSize: 20rem;
     --imgTranslate: 6rem;
     --statBarHeight: 1.5rem;
-    --cardWidth: 30rem;
+    --cardWidth: 25rem;
     --gradientDeg: 130deg;
 }
 *,
@@ -103,7 +103,7 @@
     --br_b: var(--md);
     --br_f: var(--xl);
     --b_pd: var(--lg) var(--xl);
-    --navHeight: calc(var(--iconSize) + 2rem);
+    --navHeight: calc(var(--iconSize) * 2 + 2rem);
 }
 :root {
     min-height: 100vh;
@@ -251,7 +251,7 @@ NAV {
     width: 100%;
     height: var(--navHeight);
     background: var(--bgAccent);
-    @include flexCenter();
+    @include flex(column, flex-start, center);
     border-radius: 0 0 1rem 1rem;
     z-index: 999;
     FORM {
@@ -592,6 +592,7 @@ NAV {
 .float_btn {
     position: fixed;
     background: var(--bgAccent);
+    border: solid 2px var(--textColor);
     border-radius: 50%;
     z-index: 2;
 }
@@ -809,7 +810,7 @@ NAV {
     }
 }
 .small_cards_container {
-    --cardWidth: 20rem;
+    --cardWidth: 17rem;
 }
 
 .menu_btn {
@@ -1040,23 +1041,20 @@ NAV {
 [btn-active="false"] {
     background: inherit;
 }
+.responsive_container {
+    flex-wrap: wrap;
+}
 @media screen and (min-width: 560px) {
     :root {
         --imgSize: 35rem;
     }
-    /*    .data_row,
-    .data_btn {
-        [selection="label"]:not(.label_pill) {
-            display: flex;
-        }
-    } */
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1200px) {
     :root {
         --imgSize: 40rem;
     }
     .responsive_container {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 }
